@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>‧₊˚DIGINOTESᱸ⁎⁺˳</title>
+    <style>
+        /* Umum */
+        body {
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        .header {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            font-size: 3em;
+            font-weight: bold;
+            color: #56a78e;
+        }
+
+        /* Navigasi */
+        .nav {
+            position: sticky;
+            top: 0; /* Menempel di bagian atas saat pengguna menggulir */
+            z-index: 1000; /* Pastikan tetap di atas elemen lain */
+            display: flex;
+            justify-content: center;
+            background-color: #292929;
+            padding: 10px 0;
+            top: 0;
+            
+        }
+
+        .nav a {
+            color: #e0e0e0;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Beranda */
+        .content1 {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #1f1f1f;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            
+        }
+        .content1 img {
+            max-width: 30%;
+            border-radius: 8px;
+        }
+
+        /*Catatan*/
+        .content2 {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #1f1f1f;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgb(255, 255, 255);
+            color: white; /* Tambahkan warna teks */
+            text-align: justify; /* Justifikasi untuk teks paragraf */
+            font-size: 16px; /* Atur ukuran teks */
+            line-height: 1.6; /* Atur jarak antarbaris untuk kenyamanan membaca */
+        }
+
+         .accordion-label {
+            display: block;
+            color: black;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            max-width: 400px;
+            margin: 20px auto; /* Kurangi margin untuk keseimbangan */
+            padding: 15px;
+            background-color: #fffafa;
+            border: 1px solid #ccc; /* Border sederhana untuk tampilan paragraf */
+            font-size: 18px; /* Sesuaikan ukuran teks label */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .accordion-label:hover {
+            background-color: #56a78e;
+            color: white; /* Ubah warna teks saat hover untuk kontras */
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: #f8f9fa;
+            padding: 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px; /* Ukuran teks isi */
+            line-height: 1.6; /* Jarak antarbaris teks */
+            color: #333; /* Warna teks untuk keterbacaan */
+            text-align: justify;
+        }
+
+        /* Ketika checkbox di-check, konten teks muncul */
+            #ml:checked ~ .accordion-content:nth-of-type(1),
+            #pcd:checked ~ .accordion-content:nth-of-type(2),
+            #sim:checked ~ .accordion-content:nth-of-type(3) {
+            max-height: 500px; /* Sesuaikan dengan tinggi konten */
+            padding: 20px; /* Atur padding saat terbuka */
+            overflow-y: auto;
+        }
+
+
+        /* Arsip Section Styling */
+.content4 {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: justify;
+}
+
+/* Gallery Container */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Gallery Item */
+.gallery-item {
+    position: relative;
+    width: 320px;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Image Styling */
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s, transform 0.3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Description Styling */
+.gallery .description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 1rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+}
+
+/* Hover Effect */
+.gallery-item:hover img {
+    opacity: 0;
+    transform: scale(1.2);
+}
+
+.gallery-item:hover .description {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+       /* Komentar */
+.comment-section {
+    width: 600px; /* Ukuran tetap */
+    margin: 40px auto; /* Pusatkan secara horizontal */
+    padding: 20px;
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: white;
+    box-sizing: border-box; /* Pastikan padding termasuk dalam ukuran */
+}
+
+.comment-section h2 {
+    text-align: center;
+    color: #56a78e;
+}
+
+.comment-box {
+    width: 10px; /* Lebar mengikuti container */
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #292929;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+    box-sizing: border-box; /* Pastikan padding termasuk dalam ukuran */
+}
+
+.comment-box:focus {
+    outline: 2px solid #56a78e;
+}
+
+.comment-button {
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #56a78e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+
+.comment-button:hover {
+    background-color: #3b8163;
+}
+
+        /*sosial media*/
+        .content5 {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #1f1f1f;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            align-items: center;
+        }
+        .social-media-list {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        .social-media-item {
+            margin: 10px auto;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            width: 250px;
+        }
+        .social-media-item a {
+            text-decoration: none;
+            color: #292929;
+            font-weight: bold;
+        }
+
+        .social-media-item a:hover {
+            color: #56a78e;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #292929;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+     <!-- Header -->
+     <div class="header">
+        <a href="sitemap.html" style="color: #3b8163;">‧₊˚ 🖇⋅DIGINOTES🗒 ᱸ⁎⁺˳</a>
+    </div>
+
+    <!-- Navigasi -->
+    <div class="nav">
+        <a href="#beranda">Beranda</a>
+        <a href="#catatan">Catatan</a>
+        <a href="#arsip">Arsip</a>
+        <a href="#kontak">Contact</a>
+    </div>
+
+    <!-- Beranda -->
+    <div class="content1" id="beranda">
+        <div class="content1-text">
+            <h1>Hey i'm Fira! </h1> <hr>
+            <p>"Heyyo, gezzz! Aku Fira, mahasiswa semester 5 di Universitas Pamulang. Di blog ini, aku mau share banyak hal seputar perjalanan kuliahku—mulai dari catatan penting, pemahaman materi, sama kegiatan aku selama jadi anak kuliahan. Semoga blog ini bisa jadi tempat kalian nemu inspirasi, referensi, atau sekadar dapet insight baru yang relatable buat yang lagi berjuang di dunia perkuliahan. Jadi, yuk, bareng-bareng kita belajar, tumbuh, dan saling support! Stay tuned terus, ya, biar nggak ketinggalan update serunya. Cheers~!"</p>
+        </div> 
+        <img src="C:\Users\asus\OneDrive\Dokumen\SEMESTER 5\PEMROGRAMAN WEB I\Coding\tugas akhir\web ver 2\aku.jpg"alt="aku">
+    </div>
+
+    <!--Catatan-->
+    <div class="content2" id="catatan">
+        <h2>‧₊˚ 🖇⋅DIGINOTES🗒 ᱸ⁎⁺˳</h2>
+        <p>catatan semester 5.</p>
+        <h2>Sub-Kategori Mata Kuliah</h2>
+        <div class="content2">
+            <label class="accordion-label" for="ml">MACHINE LEARNING</label>
+            <input type="checkbox" id="ml" style="display: none;">
+            <div class="accordion-content">
+                <h3> <bold> pertemuan 2: Machine Learning Lifecycle</bold></h3>
+                <dd>Adalah sebuah workflow atau alur kerja pengembangan model machine learning. machine learning lifecycle bersifat forward (maju), dan dapat berulang (iteratif) karena bertujuan untuk terus meningkatkan keakuratan dan performa model </dd>
+                <ul type ="disc">
+                    <li>Machine Learning Workflow</li>
+                </ul>
+                <ol type ="1">
+                    <li>pengumpulan data (data aquasition)<br> tipe artibut datanya berupa:</li>
+                    <ul type ="circle">
+                        <li>data nominal</li>
+                        <li>data ordinal</li>
+                        <li>data interval</li>
+                        <li>data ratio</li>
+                    </ul>
+                    <li>persiapan data</li>
+                    <ul type ="disc">
+                        <li>pembersihan data (data cleaning): melakukan operasi perbaikan pada level baris.</li><br> pembersihan data atau data cleaning adalah proses mendeteksi dan memperbaiki (atau menghapus) data yang rusak atau tidak akurat dari dataset,tabel, atau data untuk meningkatkan kualitas data 
+                        <br> langkah-langkah pembersihan data:
+                        <ol type = "1">
+                            <li>pendeteksian data yang tidak diharapkan <br>teknik menemukan error pada data:</li>
+                            <ul type = "circle">
+                                <li>data profiling</li>
+                                <li>visualisasi data</li>
+                            </ul>
+                            <li>data cleaning, penghapusan, perbaikan/penghitungan ulang. <br>ketika ada pada kondisi:</li>
+                            <ul type ="circle">
+                                <li>data yang tidak relevan</li>
+                                <li>data yang terduplikasi</li>
+                                <li>konversi tipe data</li>
+                                <li>perbaikan dan modifikasi data</li>
+                                <li>standarisasi data</li>
+                                <li>perbaikan missing data</li>
+                                <li>transformasi data</li>
+                                <li>normalisasi data</li>
+                            </ul>
+                        </ol>
+                        <li>rekayasa fitur: perbaikan data pada level kolom</li> <hr>
+                    </ul>
+                </ol>
+                <h3> <bold> pertemuan 6: Rekayasa Fitur</bold></h3>
+                <dd>Rekayasa fitur adalah proses perubahan datset di mana dilakukannya proses ekstrasi sebuah kolom menjadi kolom-kolom lainnya/proses mereduksi kolom.</dd>
+                <ul type ="disc">
+                    <li>kriteria fitur yang baik:</li>
+                    <ol type="1">
+                        <li>informatif</li>
+                        <li>ketersediaan data</li>
+                        <li>diskriminan</li>
+                    </ol>
+                    <li>metode dalam proses rekayasa fitur:</li>
+                    <ol type="1">
+                        <li>correlation matrix: memiliki korelasi yang tinggi dengan cariabel dependent</li>
+                        <li>univariate selection: menggunakan fungsi test statistik dalam menentukan seberapa penting kolom</li>
+                        <li>menggunakan midel yang berbasis tree</li>
+                        <li>permutation feature importance</li>
+                        <li>feature importance</li>
+                    </ol>
+                </ul>
+            </div>
+
+            <label class="accordion-label" for="pcd">PENGOLAHAN CITRA DIGITAL</label>
+            <input type="checkbox" id="pcd" style="display: none;">
+            <div class="accordion-content">
+                <h3> <bold> pertemuan 2</bold></h3>
+                <dd>Citra adalah suatu gambaran, kemiripan, atau imitasi dari suatu objek fisik manusia <br> Citra digital juga didefinisikan sebagai fungsi f(x,y)</dd>
+                <ol type="1">
+                    <li>Citra Analog, bersifat fisik. contoh: monitor televisi, foto sinar x, lukisan, hasil CT scan</li>
+                    <li>Citra Digital, merupakan representasi dari citra  yang diambil oleh mesin dengan bentuk pendekatan berdasarkan sampling dan kuantisasi</li>
+                </ol>
+                <ul type="disc">
+                    <li>jenis citra digital:</li>
+                    <ol type="1">
+                        <li>Citra biner (monokrom): dua warna yaitu hitam dan putih</li>
+                        <li>Citra grayscale (skala keabuan): banyaknya warna tergantung pada jumlah</li>
+                        <li>Citra warna (true color): red, green, blue</li>
+                    </ol>
+                    <li>elemen-elemen citra digital:</li>
+                    <ol type="1">
+                        <li>kecerahan</li>
+                        <li>kontras</li>
+                        <li>kontur</li>
+                        <li>warna</li>
+                        <li>bentuk:</li>
+                        <ul type="circle">
+                            <li>2 dimensi</li>
+                            <li>3 dimensi</li>
+                        </ul>
+                        <li>tekstur: keteraturan pola-pola tertentu dari susunan pixel dalam citra digital.</li>
+
+                    </ol>
+                </ul>
+            </div>
+
+            <label class="accordion-label" for="sim">SISTEM INFORMASI MANAJEMEN</label>
+            <input type="checkbox" id="sim" style="display: none;">
+            <div class="accordion-content">
+                <h3> pertemuan 1: 9 September 2024</h3>
+                <h4> Definisi Sistem Informasi Manajemen</h4>
+                <dd> Sistem Informasi manajemen merupakan mata kuliah yang akan membahas mengenai pengolahan data informasi terkait manajemen</dd> 
+                <hr>
+                <h3> pertemuan 2: 18 September 2024</h3>
+                <dd> Sistem Informasi Manajemen adalah metode yang menggabungkan dan menciptakan informasi yang solid</dd>
+                <ul type="disc">
+                    <li>konsep dasar SIM:</li>
+                    <ol type="1">
+                        <li>pengumpulan data</li>
+                        <li>pengolahan data</li>
+                        <li>penyimpanan data</li>
+                        <li>distribusi informasi: menyebarkan hasil data yang telah dikelola</li>
+                        <li>pengambilan keputusan: harus bisa mengatasi masalah</li>
+                        <li>kontrol dan pemantauan: pengecekan kembali pada data</li>
+                        <li>integrasi sistem: harus bisa mengklasidikasikan datanya menggunakan sistem</li>
+                        <li>keamanan dan privasi</li>
+                    </ol>
+                </ul>
+                <hr>
+                <h3>pertemuan 5: 9 Oktober 2024</h3>
+                <h4> Perancangan System Input Output dan Manajemen Operasi</h4>
+                <dd> Perancangan Input adalah proses merancang dan menentukan bagaimana data / informasi akan dimasukan ke dalam sistem / aplikasi. Perancangan input berfungsi untuk meningkatkan interaksi pengguna dengan sistem dan memastikan data yang dihasilkan berkualitas tinggi.</dd>
+            </div>
+        </div>
+    </div>    
+    
+   <!-- Arsip -->
+<div class="content4" id="arsip">
+    <h2>Arsip Kegiatan</h2>
+    <p>kegiatan aku selama perkuliahan.</p>
+
+    <!-- Sub-Kategori: Kuliah -->
+    <div class="gallery-category">
+        <h2>Kuliah</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="kuliah1.jpg" alt="Kegiatan Kuliah 1">
+                <div class="description">jadi ini pas kelas bagian temen-temen aku presentasi.</div>
+            </div>
+            <div class="gallery-item">
+                <img src="kuliah2.jpg" alt="Kegiatan Kuliah 2">
+                <div class="description">ini pas kelas aku lagi ngerjain uts .</div>
+            </div>
+            <div class="gallery-item">
+                <img src="kuliah3.jpg" alt="Kegiatan Kuliah 3">
+                <div class="description">Kalo ini kelompok aku lagi ngerjain tugas mata kuliah automata di perpusatakaan.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sub-Kategori: Praktikum -->
+    <div class="gallery-category">
+        <h2>Praktikum</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="prak1.jpg" alt="Kegiatan Praktikum 1">
+                <div class="description">ini pas aku lagi praktik mata kuliah basis data.</div>
+            </div>
+            <div class="gallery-item">
+                <img src="prak3.jpg" alt="Kegiatan Praktikum 3">
+                <div class="description">yang ini aku lagi ngerjain laporan praktikum matkul pak wasis.</div>
+            </div>
+            <div class="gallery-item">
+                <img src="prak4.jpg" alt="Kegiatan Praktikum 4">
+                <div class="description">nah ini juga lagi praktikum kelasnya pak wasis yang buat kabel-kabel itu.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sub-Kategori: Pengabdian -->
+    <div class="gallery-category">
+        <h2>Pengabdian</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="pkm2.jpg" alt="Kegiatan Pengabdian 2">
+                <div class="description">ini pas kepala sekolah lagi sambutan.</div>
+            </div>
+            <div class="gallery-item">
+                <img src="pkm3.jpg" alt="Kegiatan Pengabdian 3">
+                <div class="description">ini aku, temen-temen aku sama anak smp pas pkm bagian merhatiin mc lagi buka acara.</div>
+            </div>
+            <div class="gallery-item">
+                <img src="pkm4.jpg" alt="Kegiatan Pengabdian 4">
+                <div class="description">nah ini sesi akhir tanya jawab, aku lagi tanya-tanya anak smp yang berani maju itu, namanya endah. dia murid favorit aku deh hehehe</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Komentar -->
+<div class="content5" id="komentar">
+    <h2>Kolom Komentar</h2>
+    <p>Isi komentar ato ga feedback kamu di sini yaaa!</p>
+    <form id="commentForm">
+        <textarea id="commentBox" placeholder="komen gezz.." rows="5" style="width: 980px; padding: 10px; border-radius: 8px; border: 1px solid #ccc; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);"></textarea>
+        <button type="button" id="submitComment" style="margin-top: 10px; padding: 10px 20px; background-color: #56a78e; color: white; border: none; border-radius: 8px; cursor: pointer;">Kirim</button>
+    </form>
+    <div id="commentList" style="margin-top: 20px;">
+        <h3>Komentar Sebelumnya:</h3>
+        <ul style="list-style: none; padding: 0;"></ul>
+    </div>
+</div>
+
+<script>
+    const commentForm = document.getElementById("commentForm");
+    const commentBox = document.getElementById("commentBox");
+    const commentList = document.getElementById("commentList").querySelector("ul");
+
+    document.getElementById("submitComment").addEventListener("click", () => {
+        const commentText = commentBox.value.trim();
+        if (commentText) {
+            const newComment = document.createElement("li");
+            newComment.textContent = commentText;
+            newComment.style.marginBottom = "10px";
+            newComment.style.padding = "10px";
+            newComment.style.backgroundColor = "#1f1f1f";
+            newComment.style.borderRadius = "8px";
+            newComment.style.color = "#e0e0e0";
+            newComment.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.5)";
+            commentList.appendChild(newComment);
+            commentBox.value = "";
+            showThankYouPopup();
+        } else {
+            alert("Komentar tidak boleh kosong!");
+        }
+    });
+
+    // Fungsi untuk menampilkan pop-up "Terima Kasih"
+    function showThankYouPopup() {
+        const popup = document.createElement("div");
+        popup.textContent = "Kamsia gezz komennyaaa !";
+        popup.style.position = "fixed";
+        popup.style.top = "80px"; /* Jarak dari atas navbar */
+        popup.style.left = "50%";
+        popup.style.transform = "translateX(-50%)";
+        popup.style.backgroundColor = "#56a78e"; /* Warna selaras dengan tema */
+        popup.style.color = "white";
+        popup.style.padding = "15px 30px";
+        popup.style.borderRadius = "12px";
+        popup.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.3)";
+        popup.style.zIndex = "1000";
+        popup.style.textAlign = "center";
+        popup.style.fontSize = "16px";
+        popup.style.fontWeight = "bold";
+
+        // Tambahkan pop-up ke body
+        document.body.appendChild(popup);
+
+        // Hapus pop-up setelah 3 detik
+        setTimeout(() => {
+            document.body.removeChild(popup);
+        }, 3000);
+    }
+</script>
+
+
+    <!-- Sosial Media -->
+    <div class="content5" id="kontak">      
+        <h2>Sosial Media</h2>
+        <p>mampir gezzz ke social media aku!!!:</p>
+        
+        <ul class="social-media-list" id="socialMediaList"></ul>
+
+        <script>
+            
+            const socialMedia = [
+                { name: "Instagram", url: "https://instagram.com/maghfira.nand" },
+                { name: "Tiktok", url: "https://www.tiktok.com/en//fortunatejk" },
+                { name: "Twitter", url: "https://x.com/fortunatejk" },
+            ];
+
+            const socialMediaList = document.getElementById("socialMediaList");
+            socialMedia.forEach(media => {
+                const listItem = document.createElement("li");
+                listItem.className = "social-media-item";
+                listItem.innerHTML = `<a href="${media.url}" target="_blank">${media.name}</a>`;
+                socialMediaList.appendChild(listItem);
+            });
+            
+        </script>
+    </div>
+
+     <!-- Footer -->
+     <div class="footer">
+        &copy; 2024 Blog Maghfira F Renanda
+    </div>
+</body>
+</html>
